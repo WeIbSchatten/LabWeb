@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Композиция страницы</title>
+    <!-- Подключение Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        /* Дополнительные стили для высоты блоков */
+        .custom-height-10 {
+            height: 10vh;
+        }
+        .custom-height-80 {
+            height: 80vh;
+        }
+        .custom-height-90 {
+            height: 90vh;
+        }
+        .custom-height-12 {
+            height: 12vh;
+        }
+        .bg-orange {
+            background-color: #FFA500;
+        }
+        .bg-fuchsia {
+            background-color: #ff0073;
+        }
+        .bg-yellow {
+            background-color: #fffd69;
+        }
+        .bg-green {
+            background-color: #4fbd00;
+        }
+        .bg-blue {
+            background-color: #00BFFF;
+        }
+        /* Стили для изображений внутри мини-блоков */
+        .mini-block img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover; /* Чтобы изображение заполняло блок */
+        }
+        /* Стили для меню */
+        .navbar-custom {
+            background-color: #00BFFF; /* Цвет меню */
+        }
+        .navbar-custom .navbar-brand,
+        .navbar-custom .nav-link {
+            color: white; /* Цвет текста меню */
+        }
+        /* Эффект при наведении на пункты меню */
+        .navbar-custom .nav-link:hover {
+            background-color: rgba(0, 0, 0, 0.1); /* Слегка темный фон */
+            border-radius: 5px; /* Закругленные углы */
+            transition: background-color 0.3s ease; /* Плавный переход */
+        }
+        /* Стили для кнопки обратной связи */
+        .feedback-button {
+            margin-top: 20px; /* Отступ сверху */
+        }
+    </style>
+</head>
+<body>
+    <!-- Основной контейнер -->
+    <div class="container-fluid vh-100 p-0 d-flex flex-column">
+        <!-- Верхняя строка -->
+        <div class="row g-0 flex-grow-1">
+            <!-- Левая колонка (оранжевый и желтый блоки) -->
+            <div class="col-9 d-flex flex-column">
+                <!-- Оранжевый блок -->
+                <div class="bg-orange custom-height-10 d-flex align-items-center justify-content-center">
+                    <h1 class="text-white">Bootstrap и адаптивное меню</h1>
+                </div>
+                <!-- Желтый блок -->
+                <div class="bg-yellow flex-grow-1 p-3 position-relative">
+                    <!-- Маленькие блоки внутри желтого блока -->
+                    <div class="position-absolute mini-block" style="top: 65%; left: 70%; transform: translate(-80%, -50%); width: 20%;">
+                        <div class="bg-fuchsia custom-height-12">
+                            <!-- Картинка в мини-блоке фуксия -->
+                            <img src="src/sakura_vetki_tsvety_205566_3840x2160.jpg" alt="Фуксия">
+                        </div>
+                    </div>
+                    <div class="position-absolute mini-block" style="top: 70%; left: 70%; transform: translate(-50%, -50%); width: 20%;">
+                        <div class="bg-orange custom-height-12">
+                            <!-- Картинка в мини-блоке оранжевый -->
+                            <img src="src/luna_nebo_fioletovyj_197540_3840x2160.jpg" alt="Оранжевый">
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Правая колонка (голубой блок) -->
+            <div class="col-3 bg-blue p-3">
+                <!-- Адаптивное меню -->
+                <nav class="navbar navbar-expand-lg navbar-custom">
+                    <div class="container-fluid">
+                        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                            <span class="navbar-toggler-icon"></span>
+                        </button>
+                        <div class="collapse navbar-collapse" id="navbarNav">
+                            <ul class="navbar-nav flex-column">
+                                <li class="nav-item">
+                                    <a class="nav-link active" aria-current="page" href="#">Главная</a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link" href="#">О нас</a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link" href="#">Контакты</a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link" href="#">Услуги</a>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </nav>
+
+                <!-- Кнопка для открытия модального окна -->
+                <div class="feedback-button">
+                    <button type="button" class="btn btn-primary w-100" data-bs-toggle="modal" data-bs-target="#exampleModal">
+                        Обратная связь
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Нижняя строка (зеленый блок) -->
+        <div class="row g-0">
+            <div class="col-12 bg-green custom-height-10"></div>
+        </div>
+    </div>
+
+    <!-- Модальное окно с формой -->
+    <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLabel">Форма обратной связи</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <form>
+                        <div class="mb-3">
+                            <label for="name" class="form-label">Имя</label>
+                            <input type="text" class="form-control" id="name" placeholder="Введите ваше имя">
+                        </div>
+                        <div class="mb-3">
+                            <label for="email" class="form-label">Email</label>
+                            <input type="email" class="form-control" id="email" placeholder="Введите ваш email">
+                        </div>
+                        <div class="mb-3">
+                            <label for="question" class="form-label">Ваш вопрос</label>
+                            <textarea class="form-control" id="question" rows="3" placeholder="Введите ваш вопрос"></textarea>
+                        </div>
+                        <button type="submit" class="btn btn-primary">Отправить</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Подключение Bootstrap JS и зависимостей -->
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.10.2/dist/umd/popper.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.min.js"></script>
+</body>
+</html>

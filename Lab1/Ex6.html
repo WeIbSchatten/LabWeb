@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Композиция страницы</title>
+    <style>
+        * {
+            box-sizing: border-box; 
+        }
+        
+        body {
+            width: 100%;
+            margin: 0; 
+            font-family: Arial, sans-serif; 
+            position: relative;
+        }
+        
+        .container {
+            position: relative;
+            height: 100vh; 
+        }
+        
+       
+        .orange-block {
+            background-color: #FFA500; 
+            height: 10%; 
+            width: 85%; 
+            position: absolute;
+            top: 0;
+            left: 0;
+            z-index: 1;
+        }
+
+       
+        .blue-block {
+            background-color: #00BFFF; 
+            width: 15%; 
+            height: 90%;
+            position: absolute; 
+            right: 0; 
+            top: 0;
+            z-index: 1;
+        }
+        .yellow-block {
+            background-color: #fffd69; 
+            height: 80%;
+            width: 85%; 
+            padding: 20px; 
+            position: absolute; 
+            left: 0; 
+            top: 10%;
+            z-index: 0; 
+        }
+        .green-block {
+            background-color: #4fbd00;
+            height: 10%; 
+            width: 100%; 
+            position: absolute; 
+            bottom: 0;
+            left: 0; 
+            z-index: 1; 
+        }
+        .orangeSmall-block {
+            background-color: #ff0073; 
+            height: 12%; 
+            width: 20%;
+            position: absolute; 
+            left: 70%; 
+            top: 70%; 
+            transform: translate(-50%, -50%); 
+            z-index: 1; 
+        }
+        .fuchsia-block {
+            background-color: #FFA500; 
+            height: 12%; 
+            width: 20%; 
+            position: absolute; 
+            left: 70%; 
+            top: 65%; 
+            transform: translate(-80%, -50%); 
+            z-index: 0; 
+        }
+       
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="orange-block"></div> 
+        <div class="blue-block"></div>
+        <div class="yellow-block"></div> 
+        <div class="green-block"></div> 
+        <div class="orangeSmall-block"></div> 
+        <div class="fuchsia-block"></div> 
+    </div>
+</body>
+</html>

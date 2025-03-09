@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Тесты 1</title>
+    <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+    <!-- Кнопка "Главная" -->
+    <a href="index.html" class="home-button">Главная</a>
+
+    <div class="wrapper">
+        <h1>Тесты 1</h1>
+        <div id="quiz">
+            <div class="question-radio">
+                <p>Вопрос 1: Какой язык программирования вы изучаете?</p>
+                <label><input type="radio" name="q1" value="JavaScript"> JavaScript</label>
+                <label><input type="radio" name="q1" value="Python"> Python</label>
+                <label><input type="radio" name="q1" value="Java"> Java</label>
+            </div>
+            <div class="question-radio">
+                <p>Вопрос 2: Какой тег используется для создания ссылки?</p>
+                <label><input type="radio" name="q2" value="a"> a</label>
+                <label><input type="radio" name="q2" value="link"> link</label>
+                <label><input type="radio" name="q2" value="href"> href</label>
+            </div>
+            <div class="question-radio">
+                <p>Вопрос 3: Какой тег используется для создания заголовка?</p>
+                <label><input type="radio" name="q3" value="h1"> h1</label>
+                <label><input type="radio" name="q3" value="p"> p</label>
+                <label><input type="radio" name="q3" value="div"> div</label>
+            </div>
+            <div class="question-radio">
+                <p>Вопрос 4: Какой язык используется для стилизации веб-страниц?</p>
+                <label><input type="radio" name="q4" value="CSS"> CSS</label>
+                <label><input type="radio" name="q4" value="HTML"> HTML</label>
+                <label><input type="radio" name="q4" value="JavaScript"> JavaScript</label>
+            </div>
+            <div class="question-radio">
+                <p>Вопрос 5: Какой тег используется для создания списка?</p>
+                <label><input type="radio" name="q5" value="ul"> ul</label>
+                <label><input type="radio" name="q5" value="ol"> ol</label>
+                <label><input type="radio" name="q5" value="li"> li</label>
+            </div>
+            <button id="checkQuizButton">Проверить</button>
+            <p id="result"></p>
+        </div>
+    </div>
+
+    <!-- Подключение JavaScript -->
+    <script src="src/script.js"></script>
+</body>
+</html>

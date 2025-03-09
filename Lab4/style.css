@@ -1,0 +1,226 @@
+/* Общие стили */
+@import url("https://fonts.googleapis.com/css2?family=Open+Sans:wght@200;300;400;500;600;700&display=swap");
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: "Open Sans", sans-serif;
+}
+
+body {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    min-height: 100vh;
+    width: 100%;
+    padding: 20px;
+    position: relative;
+    background: #000;
+}
+
+body::before {
+    content: "";
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background: url("hero-bg.jpg"), #000;
+    background-position: center;
+    background-size: cover;
+    z-index: -1;
+}
+
+.wrapper {
+    width: 25%;
+    border-radius: 8px;
+    padding: 30px;
+    text-align: center;
+    border: 1px solid rgba(255, 255, 255, 0.5);
+    backdrop-filter: blur(9px);
+    -webkit-backdrop-filter: blur(9px);
+    margin-bottom: 20px;
+    background: rgba(255, 255, 255, 0.1);
+}
+
+/* Кнопка "Главная" */
+.home-button {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    padding: 10px 20px;
+    background: rgba(255, 255, 255, 0.1);
+    color: #fff;
+    text-decoration: none;
+    border-radius: 5px;
+    border: 1px solid rgba(255, 255, 255, 0.5);
+    backdrop-filter: blur(9px);
+    -webkit-backdrop-filter: blur(9px);
+    transition: background 0.3s ease;
+}
+
+.home-button:hover {
+    background: rgba(255, 255, 255, 0.2);
+}
+
+/* Стили для тестов */
+.question-radio, .question-paragraph {
+    margin-bottom: 20px;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+
+.question-radio p, .question-paragraph p {
+    margin: 10px 0;
+}
+
+.answer {
+    cursor: pointer;
+    padding: 5px;
+    border-radius: 3px;
+    transition: background 0.3s ease;
+}
+
+.answer:hover {
+    background: rgba(255, 255, 255, 0.1);
+}
+
+.answer.selected {
+    background: rgba(0, 255, 0, 0.1);
+}
+
+.question-radio.correct, .question-paragraph.correct {
+    background: #d4edda;
+}
+
+.question-radio.incorrect, .question-paragraph.incorrect {
+    background: #f8d7da;
+}
+
+/* Стили для кнопки перехода на тесты */
+.test-button {
+    display: inline-block;
+    padding: 10px 20px;
+    background: #fff;
+    color: #000;
+    text-decoration: none;
+    border-radius: 5px;
+    font-weight: 600;
+    transition: 0.3s ease;
+}
+
+.test-button:hover {
+    background: rgba(255, 255, 255, 0.15);
+    color: #fff;
+    border: 2px solid #fff;
+}
+
+/* Стили для формы */
+.input-field {
+    position: relative;
+    border-bottom: 2px solid #ccc;
+    margin: 15px 0;
+}
+
+.input-field label {
+    position: absolute;
+    top: 50%;
+    left: 0;
+    transform: translateY(-50%);
+    color: #fff;
+    font-size: 16px;
+    pointer-events: none;
+    transition: 0.15s ease;
+}
+
+.input-field input:focus ~ label,
+.input-field input:valid ~ label {
+    font-size: 0.8rem;
+    top: 10px;
+    transform: translateY(-120%);
+}
+
+.checkmark {
+    position: absolute;
+    right: 10px;
+    top: 50%;
+    transform: translateY(-50%);
+    color: green;
+    display: none;
+}
+
+.checkmark.visible {
+    display: inline;
+}
+
+/* Стили для рейтинга */
+#rating {
+    margin: 20px 0;
+    text-align: center;
+}
+
+.st {
+    font-size: 60px;
+    cursor: pointer;
+    color: gray;
+}
+
+.st.selected {
+    color: gold;
+}
+
+/* Стили для теста */
+#quiz {
+    margin: 20px 0;
+    text-align: center;
+}
+
+.question {
+    margin-bottom: 20px;
+}
+
+button {
+    background: #fff;
+    color: #000;
+    font-weight: 600;
+    border: none;
+    padding: 12px 20px;
+    cursor: pointer;
+    border-radius: 3px;
+    font-size: 16px;
+    border: 2px solid transparent;
+    transition: 0.3s ease;
+  }
+
+  button:hover {
+    color: #fff;
+    border-color: #fff;
+    background: rgba(255, 255, 255, 0.15);
+  }
+
+/* Стили для выбора пола */
+.gender-selection {
+    display: flex;
+    justify-content: center;
+    margin-top: 10px;
+    color: #fff;
+  }
+  
+  .gender-selection label {
+    display: flex;
+    align-items: center;
+    margin: 0 10px;
+  }
+
+/* Стили для галереи */
+#imageGallery {
+    margin-top: 20px;
+    text-align: center;
+}
+
+#imageGallery img {
+    width: 20%;
+    height: auto;
+    cursor: pointer;
+}

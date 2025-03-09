@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="ru">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Login Form</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <div class="wrapper">
+      <form id="loginForm">
+        <h2>Login Form</h2>
+
+        <!-- Поле для ввода почты с проверкой по паттерну -->
+        <div class="input-field">
+          <input type="text" id="email" name="email" pattern="^[A-Za-z0-9._%+-]+@[A-Za-z0-9.-]+\.(com|ru|org|net|edu|gov|mil|int)$" required  placeholder="Почта может содержать только латинские символы, цифры и знаки пунктуации, заканчиваться только на .(com|ru|org|net|edu|gov|mil|int)" />
+          <label>Enter your email</label>
+        </div>
+
+        <!-- Поле для ввода пароля с проверкой по паттерну -->
+        <div class="input-field">
+          <input type="password" id="password" name="password" pattern="^[A-Za-z0-9@№._%+-]+$" required title="Пароль может содержать только латинские символы, цифры и знаки пунктуации"/>
+          <label>Enter your password</label>
+        </div>
+
+        <!-- Выбор возраста -->
+        <div class="input-field">
+          <select id="age" name="age" required>
+            <option value="" disabled selected>Select your age</option>
+            <option value="18">18</option>
+            <option value="19">19</option>
+            <option value="20">20</option>
+            <option value="21">21</option>
+            <option value="22">22</option>
+            <option value="23">23</option>
+            <option value="24">24</option>
+            <option value="25">25</option>
+            <option value="26+">26+</option>
+          </select>
+        </div>
+
+        <!-- Выбор гендера -->
+        <div class="gender-selection">
+          <label>
+            <input type="radio" name="gender" value="male" required />
+            Male
+          </label>
+          <label>
+            <input type="radio" name="gender" value="female" required />
+            Female
+          </label>
+        </div>
+
+        <div class="forget">
+          <label for="remember">
+            <input type="checkbox" id="remember" />
+            <p>Remember me</p>
+          </label>
+          <a href="#">Forgot password?</a>
+        </div>
+
+        <button type="submit">Log In</button>
+
+        <div class="register">
+          <p>Don't have an account? <a href="#">Register</a></p>
+        </div>
+      </form>
+    </div>
+
+    <!-- Подключаем внешний JavaScript файл -->
+    <script src="script.js"></script>
+  </body>
+</html>

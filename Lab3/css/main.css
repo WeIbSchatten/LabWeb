@@ -1,0 +1,181 @@
+body {
+  padding: 0;
+  margin: 0;
+  font-family: "Verdana";
+}
+
+a {
+  text-decoration: none;
+}
+
+.top-bar {
+  background: linear-gradient(to right, #f77b2e 0%, #fac85d 51%, #f77b2e 100%);
+  padding: 0.5rem 0;
+}
+.float-right {
+  float: right;
+}
+
+.navbar {
+  border-bottom: 5px solid #f77b2e;
+  background-color: #fff;
+}
+
+.nav-link:hover,
+.nav-link:focus,
+.nav-link.active {
+  color: #f77b2e !important;
+}
+
+.navbar-collapse {
+  justify-content: flex-end;
+}  
+
+.carousel {
+  padding: auto;
+}
+.carousel-inner {
+    border-radius: 5%;
+    overflow: hidden;
+}
+
+.content {
+  position: relative;
+  padding-top: 9em;
+}
+
+.section2,.section3
+{
+  margin-top: 8em; 
+}
+h1,.card-title {
+  color: #f97300;
+}
+
+.section2 .card {
+  box-shadow: 0 0 20px #ccc;
+}
+.section2 .card img {
+  width: auto;
+  height: auto;
+}
+.section2 .card-footer a:link {
+  color: #121213; 
+}
+.section2 .card-footer a:visited {
+  color: #38383a; 
+}
+  .section2 .card-footer a:hover {
+  color: #f97300;
+}
+
+/* Стили для Section 3 (Обратная связь) */
+.section3 {
+  margin-top: 8em;
+  padding: 50px 0;
+  background-color: #fff; /* Белый фон, как у навбара */
+}
+
+.section3 h1 {
+  color: #f97300; /* Оранжевый цвет, как у заголовков */
+  margin-bottom: 30px;
+  text-align: center;
+}
+
+.section3 form {
+  max-width: 600px;
+  margin: 0 auto;
+  padding: 20px;
+  background-color: #f8f9fa; /* Светлый фон для формы */
+  border-radius: 10px;
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.1); /* Тень, как у карточек */
+}
+
+.section3 .form-label {
+  color: #333; /* Темный цвет текста */
+  font-weight: bold;
+}
+
+.section3 .form-control {
+  border: 1px solid #ddd; /* Светлая граница */
+  border-radius: 5px;
+  padding: 10px;
+  margin-bottom: 15px;
+  transition: border-color 0.3s ease;
+}
+
+.section3 .form-control:focus {
+  border-color: #f97300; /* Оранжевая граница при фокусе */
+  box-shadow: 0 0 5px rgba(249, 115, 0, 0.5); /* Тень при фокусе */
+}
+
+.section3 textarea.form-control {
+  resize: vertical; /* Разрешаем изменение высоты текстового поля */
+}
+
+.section3 .btn-primary {
+  background-color: #f97300; /* Оранжевый цвет кнопки */
+  border: none;
+  border-radius: 5px;
+  padding: 10px 20px;
+  font-size: 16px;
+  transition: background-color 0.3s ease;
+}
+
+.section3 .btn-primary:hover {
+  background-color: #e56200; /* Темнее оранжевый при наведении */
+}
+
+.section3 .btn-primary:focus {
+  box-shadow: 0 0 5px rgba(249, 115, 0, 0.5); /* Тень при фокусе */
+}
+
+/* Стили для модального окна */
+.modal-content {
+  border-radius: 10px;
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.2);
+}
+
+.modal-header {
+  background-color: #f97300; /* Оранжевый фон заголовка */
+  color: #fff; /* Белый текст */
+  border-top-left-radius: 10px;
+  border-top-right-radius: 10px;
+}
+
+.modal-title {
+  font-weight: bold;
+}
+
+.modal-body {
+  padding: 20px;
+}
+
+.modal-footer {
+  border-top: 1px solid #ddd;
+  padding: 15px 20px;
+}
+
+.modal-footer .btn-secondary {
+  background-color: #6c757d; /* Серый цвет для кнопки "Закрыть" */
+  border: none;
+  border-radius: 5px;
+  padding: 8px 16px;
+  transition: background-color 0.3s ease;
+}
+
+.modal-footer .btn-secondary:hover {
+  background-color: #5a6268; /* Темнее серый при наведении */
+}
+
+.modal-footer .btn-primary {
+  background-color: #f97300; /* Оранжевый цвет для кнопки "Отправить" */
+  border: none;
+  border-radius: 5px;
+  padding: 8px 16px;
+  transition: background-color 0.3s ease;
+}
+
+.modal-footer .btn-primary:hover {
+  background-color: #e56200; /* Темнее оранжевый при наведении */
+}
