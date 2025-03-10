@@ -45,7 +45,7 @@ document.addEventListener("DOMContentLoaded", function () {
             ratingModal.style.display = "none";
         });
 
-        // Закрытие модального окна при клике вне его области
+        // закрытие модального окна при клике вне его области
         window.addEventListener("click", function (event) {
             if (event.target === ratingModal) {
                 ratingModal.style.display = "none";
