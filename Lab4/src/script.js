@@ -34,7 +34,7 @@ document.addEventListener("DOMContentLoaded", function () {
                     stars[i].classList.add("selected");
                 }
 
-                // Показываем модальное окно с выбранным рейтингом
+                // показываем модальное окно с выбранным рейтингом
                 selectedRating.textContent = index + 1;
                 ratingModal.style.display = "block";
             });

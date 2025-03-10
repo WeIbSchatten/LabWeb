@@ -225,7 +225,7 @@ button {
     cursor: pointer;
 }
 
-/* Стили для модального окна */
+/* стили для модального окна */
 .modal {
     display: none;
     position: fixed;
