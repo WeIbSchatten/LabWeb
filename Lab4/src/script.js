@@ -24,28 +24,35 @@ document.addEventListener("DOMContentLoaded", function () {
     if (stars.length > 0 && ratingModal && selectedRating && closeModal) {
         stars.forEach((star, index) => {
             star.addEventListener("click", function () {
-                stars.forEach((s, i) => {
-                    if (i <= index) {
-                        s.classList.add("selected");
-                    } else {
-                        s.classList.remove("selected");
-                    }
+                // Убираем выделение у всех звезд
+                stars.forEach((s) => {
+                    s.classList.remove("selected");
                 });
+
+                // Выделяем звезды до выбранной
+                for (let i = 0; i <= index; i++) {
+                    stars[i].classList.add("selected");
+                }
+
+                // Показываем модальное окно с выбранным рейтингом
                 selectedRating.textContent = index + 1;
                 ratingModal.style.display = "block";
             });
         });
 
+        // Закрытие модального окна при клике на крестик
         closeModal.addEventListener("click", function () {
             ratingModal.style.display = "none";
         });
 
+        // Закрытие модального окна при клике вне его области
         window.addEventListener("click", function (event) {
             if (event.target === ratingModal) {
                 ratingModal.style.display = "none";
             }
         });
     }
+
 
     // Задание 3 и 4: Тесты с радиокнопками (test.html)
     const questionsRadio = document.querySelectorAll(".question-radio");
