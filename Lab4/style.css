@@ -6,6 +6,7 @@
     padding: 0;
     box-sizing: border-box;
     font-family: "Open Sans", sans-serif;
+    color: white; /* Белый цвет по умолчанию для всего текста */
 }
 
 body {
@@ -18,6 +19,7 @@ body {
     padding: 20px;
     position: relative;
     background: #000;
+    color: white; /* Дублируем для body */
 }
 
 body::before {
@@ -50,7 +52,7 @@ body::before {
     right: 20px;
     padding: 10px 20px;
     background: rgba(255, 255, 255, 0.1);
-    color: #fff;
+    color: white;
     text-decoration: none;
     border-radius: 5px;
     border: 1px solid rgba(255, 255, 255, 0.5);
@@ -67,12 +69,14 @@ body::before {
 .question-radio, .question-paragraph {
     margin-bottom: 20px;
     padding: 10px;
-    border: 1px solid #ccc;
+    border: 1px solid rgba(255, 255, 255, 0.3);
     border-radius: 5px;
+    background: rgba(255, 255, 255, 0.05);
 }
 
 .question-radio p, .question-paragraph p {
     margin: 10px 0;
+    color: white;
 }
 
 .answer {
@@ -80,6 +84,7 @@ body::before {
     padding: 5px;
     border-radius: 3px;
     transition: background 0.3s ease;
+    color: white;
 }
 
 .answer:hover {
@@ -87,39 +92,48 @@ body::before {
 }
 
 .answer.selected {
+    background: rgba(0, 255, 0, 0.2);
+}
+
+/* В разделе стилей для тестов замените эти классы */
+.question-radio.correct {
     background: rgba(0, 255, 0, 0.1);
+    border: 1px solid rgba(0, 255, 0, 0.5);
 }
 
-.question-radio.correct, .question-paragraph.correct {
-    background: #d4edda;
+.question-radio.incorrect {
+    background: rgba(255, 0, 0, 0.1);
+    border: 1px solid rgba(255, 0, 0, 0.5);
 }
 
-.question-radio.incorrect, .question-paragraph.incorrect {
-    background: #f8d7da;
+/* Добавьте этот стиль для выделения правильного ответа */
+.question-radio.correct .answer[data-correct="true"] {
+    background: rgba(0, 255, 0, 0.2);
 }
 
-/* Стили для кнопки перехода на тесты */
-.test-button {
+/* Стили для кнопок */
+.test-button, button {
     display: inline-block;
     padding: 10px 20px;
-    background: #fff;
-    color: #000;
+    background: rgba(255, 255, 255, 0.2);
+    color: white;
     text-decoration: none;
     border-radius: 5px;
     font-weight: 600;
-    transition: 0.3s ease;
+    border: 2px solid rgba(255, 255, 255, 0.5);
+    transition: all 0.3s ease;
+    cursor: pointer;
 }
 
-.test-button:hover {
-    background: rgba(255, 255, 255, 0.15);
-    color: #fff;
-    border: 2px solid #fff;
+.test-button:hover, button:hover {
+    background: rgba(255, 255, 255, 0.3);
+    border-color: white;
 }
 
 /* Стили для формы */
 .input-field {
     position: relative;
-    border-bottom: 2px solid #ccc;
+    border-bottom: 2px solid rgba(255, 255, 255, 0.5);
     margin: 15px 0;
 }
 
@@ -128,10 +142,18 @@ body::before {
     top: 50%;
     left: 0;
     transform: translateY(-50%);
-    color: #fff;
+    color: white;
     font-size: 16px;
     pointer-events: none;
     transition: 0.15s ease;
+}
+
+.input-field input {
+    background: transparent;
+    border: none;
+    width: 100%;
+    padding: 10px 0;
+    color: white;
 }
 
 .input-field input:focus ~ label,
@@ -146,7 +168,7 @@ body::before {
     right: 10px;
     top: 50%;
     transform: translateY(-50%);
-    color: green;
+    color: lime;
     display: none;
 }
 
@@ -163,7 +185,7 @@ body::before {
 .st {
     font-size: 60px;
     cursor: pointer;
-    color: gray;
+    color: rgba(255, 255, 255, 0.5);
 }
 
 .st.selected {
@@ -180,38 +202,19 @@ body::before {
     margin-bottom: 20px;
 }
 
-button {
-    background: #fff;
-    color: #000;
-    font-weight: 600;
-    border: none;
-    padding: 12px 20px;
-    cursor: pointer;
-    border-radius: 3px;
-    font-size: 16px;
-    border: 2px solid transparent;
-    transition: 0.3s ease;
-  }
-
-  button:hover {
-    color: #fff;
-    border-color: #fff;
-    background: rgba(255, 255, 255, 0.15);
-  }
-
 /* Стили для выбора пола */
 .gender-selection {
     display: flex;
     justify-content: center;
     margin-top: 10px;
-    color: #fff;
-  }
+}
   
-  .gender-selection label {
+.gender-selection label {
     display: flex;
     align-items: center;
     margin: 0 10px;
-  }
+    color: white;
+}
 
 /* Стили для галереи */
 #imageGallery {
@@ -223,9 +226,16 @@ button {
     width: 20%;
     height: auto;
     cursor: pointer;
+    border: 2px solid rgba(255, 255, 255, 0.3);
+    border-radius: 5px;
+    transition: border-color 0.3s ease;
 }
 
-/* стили для модального окна */
+#imageGallery img:hover {
+    border-color: white;
+}
+
+/* Стили для модального окна */
 .modal {
     display: none;
     position: fixed;
@@ -234,12 +244,12 @@ button {
     top: 0;
     width: 100%;
     height: 100%;
-    background: rgba(0, 0, 0, 0.5);
+    background: rgba(0, 0, 0, 0.7);
     backdrop-filter: blur(5px);
 }
 
 .modal-content {
-    background: rgba(255, 255, 255, 0.9);
+    background: rgba(0, 0, 0, 0.8);
     margin: 15% auto;
     padding: 20px;
     border: 1px solid rgba(255, 255, 255, 0.5);
@@ -248,18 +258,28 @@ button {
     max-width: 400px;
     text-align: center;
     position: relative;
+    color: white;
 }
 
 .close {
     position: absolute;
     top: 10px;
     right: 10px;
-    color: #aaa;
+    color: white;
     font-size: 28px;
     font-weight: bold;
     cursor: pointer;
+    opacity: 0.7;
+    transition: opacity 0.3s ease;
 }
 
 .close:hover {
-    color: #000;
+    opacity: 1;
+}
+
+/* Дополнительные стили для радиокнопок и чекбоксов */
+input[type="radio"],
+input[type="checkbox"] {
+    accent-color: white;
+    margin-right: 8px;
 }

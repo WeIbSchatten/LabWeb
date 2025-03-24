@@ -1,5 +1,5 @@
 document.addEventListener("DOMContentLoaded", function () {
-    // Задание 1: Проверка совпадения паролей
+    // Задание 1: Проверка совпадения паролей (оставляем без изменений)
     const password = document.getElementById("password");
     const confirmPassword = document.getElementById("confirmPassword");
     const passwordMatch = document.getElementById("passwordMatch");
@@ -15,7 +15,7 @@ document.addEventListener("DOMContentLoaded", function () {
         });
     }
 
-    // Задание 2: Рейтинг с звездами и модальным окном
+    // Задание 2: Рейтинг с звездами (оставляем без изменений)
     const stars = document.querySelectorAll(".st");
     const ratingModal = document.getElementById("ratingModal");
     const selectedRating = document.getElementById("selectedRating");
@@ -24,28 +24,19 @@ document.addEventListener("DOMContentLoaded", function () {
     if (stars.length > 0 && ratingModal && selectedRating && closeModal) {
         stars.forEach((star, index) => {
             star.addEventListener("click", function () {
-                // Убираем выделение у всех звезд
-                stars.forEach((s) => {
-                    s.classList.remove("selected");
-                });
-
-                // Выделяем звезды до выбранной
+                stars.forEach((s) => s.classList.remove("selected"));
                 for (let i = 0; i <= index; i++) {
                     stars[i].classList.add("selected");
                 }
-
-                // показываем модальное окно с выбранным рейтингом
                 selectedRating.textContent = index + 1;
                 ratingModal.style.display = "block";
             });
         });
 
-        // Закрытие модального окна при клике на крестик
         closeModal.addEventListener("click", function () {
             ratingModal.style.display = "none";
         });
 
-        // Закрытие модального окна при клике вне его области
         window.addEventListener("click", function (event) {
             if (event.target === ratingModal) {
                 ratingModal.style.display = "none";
@@ -53,12 +44,7 @@ document.addEventListener("DOMContentLoaded", function () {
         });
     }
 
-
-    // Задание 3 и 4: Тесты с радиокнопками (test.html)
-    const questionsRadio = document.querySelectorAll(".question-radio");
-    const checkQuizButton = document.getElementById("checkQuizButton");
-    const result = document.getElementById("result");
-
+    // Задание 3 и 4: Тесты с радиокнопками
     const correctAnswersRadio = {
         q1: "JavaScript",
         q2: "a",
@@ -67,55 +53,84 @@ document.addEventListener("DOMContentLoaded", function () {
         q5: "ul"
     };
 
-    if (checkQuizButton && result) {
-        checkQuizButton.addEventListener("click", function () {
-            let score = 0;
-            questionsRadio.forEach((question, index) => {
-                const selected = question.querySelector(`input[name="q${index + 1}"]:checked`);
-                if (selected && selected.value === correctAnswersRadio[`q${index + 1}`]) {
-                    question.classList.add("correct");
-                    question.classList.remove("incorrect");
+    function checkRadioQuiz() {
+        let score = 0;
+        const questionElements = document.querySelectorAll('.question-radio');
+        
+        questionElements.forEach((question, index) => {
+            const questionId = `q${index + 1}`;
+            const selectedRadio = question.querySelector(`input[name="${questionId}"]:checked`);
+            
+            // Сбрасываем классы перед проверкой
+            question.classList.remove('correct', 'incorrect');
+            
+            if (selectedRadio) {
+                if (selectedRadio.value === correctAnswersRadio[questionId]) {
                     score++;
+                    question.classList.add('correct');
                 } else {
-                    question.classList.add("incorrect");
-                    question.classList.remove("correct");
+                    question.classList.add('incorrect');
                 }
-            });
-            result.textContent = `Правильных ответов: ${score} из ${questionsRadio.length}`;
+            } else {
+                question.classList.add('incorrect');
+            }
         });
+        
+        const result = document.getElementById('result');
+        if (result) {
+            result.textContent = `Правильных ответов: ${score} из ${questionElements.length}`;
+        }
     }
 
-    // Задание 5: Тесты с ответами в тегах <p> (test2.html)
-    const questionsParagraph = document.querySelectorAll(".question-paragraph");
+    // Инициализация кнопки проверки
+    const checkQuizButton = document.getElementById('checkQuizButton');
+    if (checkQuizButton) {
+        checkQuizButton.addEventListener('click', checkRadioQuiz);
+    }
 
-    if (questionsParagraph.length > 0) {
-        questionsParagraph.forEach((question) => {
-            const answers = question.querySelectorAll(".answer");
-            answers.forEach((answer) => {
-                answer.addEventListener("click", function () {
-                    // Убираем выделение у всех ответов в этом вопросе
-                    answers.forEach((a) => {
-                        a.classList.remove("selected");
-                    });
+    // Задание 5: Тесты с ответами в тегах <p> - переписываем по новому принципу
+    const correctAnswersParagraph = {
+        pq1: "true",  // ID вопроса : значение data-correct правильного ответа
+        pq2: "true",
+        pq3: "true",
+        pq4: "true",
+        pq5: "true"
+    };
 
-                    // Выделяем выбранный ответ
-                    answer.classList.add("selected");
-
-                    // Проверяем правильность ответа
-                    const correctAnswer = question.querySelector(".answer[data-correct='true']");
-                    if (answer === correctAnswer) {
-                        question.classList.add("correct");
-                        question.classList.remove("incorrect");
-                    } else {
-                        question.classList.add("incorrect");
-                        question.classList.remove("correct");
+    function setupParagraphQuiz() {
+        const paragraphQuestions = document.querySelectorAll('.question-paragraph');
+        
+        paragraphQuestions.forEach(question => {
+            const answers = question.querySelectorAll('.answer');
+            const questionId = question.id;
+            
+            answers.forEach(answer => {
+                answer.addEventListener('click', function() {
+                    // Снимаем выделение со всех ответов этого вопроса
+                    answers.forEach(a => a.classList.remove('selected'));
+                    // Добавляем выделение выбранному ответу
+                    this.classList.add('selected');
+                    
+                    // Проверяем ответ сразу при клике (по аналогии с тестом 4)
+                    const selectedAnswer = question.querySelector('.answer.selected');
+                    if (selectedAnswer) {
+                        if (selectedAnswer.dataset.correct === correctAnswersParagraph[questionId]) {
+                            question.classList.add('correct');
+                            question.classList.remove('incorrect');
+                        } else {
+                            question.classList.add('incorrect');
+                            question.classList.remove('correct');
+                        }
                     }
                 });
             });
         });
     }
 
-    // Задание 6: Галерея изображений
+    // Инициализируем тест с параграфами
+    setupParagraphQuiz();
+    
+    // Задание 6: Галерея изображений (оставляем без изменений)
     const images = ["images/image1.jpg", "images/image2.jpg", "images/image3.jpg", "images/image4.jpg", "images/image5.jpg"];
     let currentIndex = 0;
 
