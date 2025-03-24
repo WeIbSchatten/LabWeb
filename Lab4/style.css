@@ -1,4 +1,4 @@
-/* общие стили */
+/* Общие стили */
 @import url("https://fonts.googleapis.com/css2?family=Open+Sans:wght@200;300;400;500;600;700&display=swap");
 
 * {
@@ -95,20 +95,14 @@ body::before {
     background: rgba(0, 255, 0, 0.2);
 }
 
-/* В разделе стилей для тестов замените эти классы */
-.question-radio.correct {
+.question-radio.correct, .question-paragraph.correct {
     background: rgba(0, 255, 0, 0.1);
-    border: 1px solid rgba(0, 255, 0, 0.5);
+    border-color: rgba(0, 255, 0, 0.5);
 }
 
-.question-radio.incorrect {
+.question-radio.incorrect, .question-paragraph.incorrect {
     background: rgba(255, 0, 0, 0.1);
-    border: 1px solid rgba(255, 0, 0, 0.5);
-}
-
-/* Добавьте этот стиль для выделения правильного ответа */
-.question-radio.correct .answer[data-correct="true"] {
-    background: rgba(0, 255, 0, 0.2);
+    border-color: rgba(255, 0, 0, 0.5);
 }
 
 /* Стили для кнопок */
@@ -283,4 +277,3 @@ input[type="checkbox"] {
     accent-color: white;
     margin-right: 8px;
 }
-
